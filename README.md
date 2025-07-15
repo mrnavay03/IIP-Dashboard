@@ -1,7 +1,6 @@
-# IIP-Dashboard
-Project done during my internship at IndiaAI, a MeitY initiative.
-
 # 📊 IIP Dashboard – Trend Forecasting & Multilingual Summarization
+
+Project done during my internship at IndiaAI, a MeitY initiative.
 
 The **IIP Dashboard** is a modular pipeline built to process and analyze India's *Index of Industrial Production (IIP)* data. It integrates time-series forecasting and LLM-based summarization to generate interpretable, multilingual insights across industrial sectors — empowering economic planning, policy analysis, and automated reporting.
 
