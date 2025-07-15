@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIP Trend Analysis Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 4H8V8H4V4Z" fill="currentColor"/>
+                    <path d="M4 10H8V14H4V10Z" fill="currentColor"/>
+                    <path d="M4 16H8V20H4V16Z" fill="currentColor"/>
+                    <path d="M10 4H14V8H10V4Z" fill="currentColor"/>
+                    <path d="M10 10H14V14H10V10Z" fill="currentColor"/>
+                    <path d="M10 16H14V20H10V16Z" fill="currentColor"/>
+                    <path d="M16 4H20V8H16V4Z" fill="currentColor"/>
+                    <path d="M16 10H20V14H16V10Z" fill="currentColor"/>
+                    <path d="M16 16H20V20H16V16Z" fill="currentColor"/>
+                </svg>
+                <h1>IIP ANALYSIS</h1>
+            </div>
+            <div class="header-actions">
+                <button id="summary-btn">
+                    <span class="icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z" fill="currentColor"/>
+                        </svg>
+                    </span>
+                    Get AI Summary
+                </button>
+            </div>
+        </header>
+        <main class="dashboard-main">
+            <aside class="sectors-sidebar">
+                <h2>Sectors</h2>
+                <nav id="sectors-nav"></nav>
+            </aside>
+            <section class="content-area">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>Latest Index</h3>
+                            <div class="info-icon" data-tooltip="This is the latest official production score for this sector. A higher score means more industrial activity.">i</div>
+                        </div>
+                        <p id="latest-index">-</p>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>Latest Growth</h3>
+                            <div class="info-icon" data-tooltip="This shows how much production has grown or shrunk compared to the same month last year. It tells you if the sector is expanding or contracting right now.">i</div>
+                        </div>
+                        <p id="latest-growth">-</p>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>Avg. Index</h3>
+                            <div class="info-icon" data-tooltip="This is the average production score over the long term. It helps you see if the current performance is above or below the historical average.">i</div>
+                        </div>
+                        <p id="avg-index">-</p>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>Avg. Growth</h3>
+                            <div class="info-icon" data-tooltip="This is the average growth rate over many months. It shows the sector's general long-term trend, whether it's typically growing or shrinking.">i</div>
+                        </div>
+                        <p id="avg-growth">-</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3 id="chart-title">IIP Index and Growth Rate (%)</h3>
+                    
+                    <div class="chart-wrapper">
+                        <canvas id="iipChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Summary Modal -->
+    <div id="summary-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <!-- Loader -->
+            <div id="summary-loader" style="display: none; text-align: center;">
+                <div class="loader"></div>
+                <p>Generating AI Summary...</p>
+            </div>
+            <!-- Content -->
+            <div id="summary-content">
+                <h2 id="summary-title"></h2>
+                <div id="summary-text"></div>
+                <p class="disclaimer">
+                    Disclaimer: This summary is generated by an AI model (Llama 3) and is for informational purposes only. It should not be considered financial advice.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
